@@ -1,0 +1,25 @@
+{
+  "name": "profile-badge-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "core-drawer-panel": "Polymer/core-drawer-panel#~0.5.4",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.4",
+    "core-menu": "Polymer/core-menu#~0.5.4",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.4",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.4"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Akash A <akash1810@gmail.com>"
+  ]
+}
