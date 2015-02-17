@@ -1,0 +1,46 @@
+$width: 250px;
+$height: $width;
+$padding: 10px;
+
+$logoWidth: $width - ($padding * 3);
+$logoHeight: $logoWidth;
+$logoFontSize: 160px;
+
+$logoColor: #5C5C5C;
+$color: #FFFFFF;
+
+:host {
+  display: block;
+  width: $width;
+  height: $height;
+  padding: $padding;
+}
+
+a {
+  text-decoration: none;
+}
+
+#logo {
+  width: $logoWidth;
+  height: $logoHeight;
+  border-radius: $logoWidth / 2;
+  margin: $padding auto $padding auto;
+  text-align: center;
+  background: $color;
+
+  &:hover {
+    background: $logoColor;
+  }
+
+  i {
+    width: 100%;
+    height: 100%;
+    line-height: $logoHeight;
+    font-size: $logoFontSize;
+    color: $logoColor;
+
+    &:hover {
+      color: $color;
+    }
+  }
+}

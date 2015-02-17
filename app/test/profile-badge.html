@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>profile-badge test</title>
+
+  <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="../../bower_components/web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../elements/profile-badge/profile-badge.html">
+
+</head>
+<body>
+
+  <profile-badge url="https://github.com/akash1810" faClass="github"></profile-badge>
+
+  <script>
+    suite('profile-badge', function() {
+      test('simple badge', function() {
+        var el = document.querySelector('profile-badge');
+
+        var a = el.shadowRoot.querySelector('a');
+        var href = a.attributes['href'];
+        assert.equal(href.value, 'https://github.com/akash1810');
+
+        var i = el.shadowRoot.querySelector('i');
+        assert.equal(i.className, 'fa fa-github');
+      })
+    });
+  </script>
+
+</body>
+</html>

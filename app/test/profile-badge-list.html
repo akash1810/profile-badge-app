@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>profile-badge-list test</title>
+
+  <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="../../bower_components/web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../elements/profile-badge-list/profile-badge-list.html">
+
+</head>
+<body>
+
+  <profile-badge-list url="fixtures/test-profile.json"></profile-badge-list>
+
+  <script>
+    suite('profile-badge-list', function() {
+      test('Badge content should equal what\'s expected', function(done) {
+        var el = document.querySelector('profile-badge-list');
+
+        // Data bindings will stamp out new DOM asynchronously
+        // so wait to check for updates
+        flush(function() {
+          var expected = [
+            {url: 'https://github.com/akash1810', faClass: 'github'},
+            {url: 'https://twitter.com/akash1810', faClass: 'twitter'}
+          ];
+
+          var badges = el.shadowRoot.querySelectorAll('profile-badge');
+
+          Array.prototype.forEach.call(badges, function (badge) {
+            assert.include(expected, {url: badge.url, faClass: badge.faClass});
+          });
+
+          done();
+        });
+      })
+    });
+  </script>
+
+</body>
+</html>
