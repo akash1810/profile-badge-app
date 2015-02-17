@@ -52,10 +52,11 @@
         <!-- Main Content -->
         <core-pages selected="{{page}}" valueattr="data-page">
           <section data-page="home">
-            <profile-badge-list url="/profile.json"></profile-badge-list>
+            <profile-badge-list url="{{profileUrl}}"></profile-badge-list>
           </section>
 
           <section data-page="about">
+            <mark-down-ajax url="/README.md"></mark-down-ajax>
           </section>
 
         </core-pages>
