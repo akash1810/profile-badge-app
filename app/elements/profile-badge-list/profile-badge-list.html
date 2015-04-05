@@ -7,7 +7,9 @@
   <template>
     <link rel="stylesheet" href="profile-badge-list.css">
 
-    <core-media-query query="{{query}}" queryMatches="{{smallScreen}}"></core-media-query>
+    <core-media-query query="{{query}}" queryMatches="{{smallScreen}}"
+                      on-core-media-change="{{onMediaQueryChange}}"></core-media-query>
+
     <core-ajax auto url="{{url}}" handleAs="json" on-core-response="{{handleResponse}}"></core-ajax>
 
     <template repeat="{{platform in platforms}}">
@@ -17,6 +19,8 @@
   <script>
     (function () {
       Polymer({
+        query: 'max-width: 500px',
+
         handleResponse: function (e) {
           var _response = e.detail.response;
 
@@ -25,6 +29,11 @@
           });
 
           this.platforms = _response;
+        },
+
+        onMediaQueryChange: function (e) {
+          var cls = 'small-screen';
+          e.detail.matches ? this.classList.add(cls) : this.classList.remove(cls);
         }
       });
     })();

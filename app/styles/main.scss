@@ -30,7 +30,10 @@ core-toolbar {
 }
 
 profile-badge-list {
-  padding: 0px 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  width: (230px + 6px) * 2;
+
+  &.small-screen {
+    width: 100%;
+  }
 }

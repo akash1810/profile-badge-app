@@ -12,18 +12,30 @@
   }
 </style>
 
-<polymer-element name="profile-badge" attributes="url faClass query" noscript>
+<polymer-element name="profile-badge" attributes="url faClass query">
   <template>
-    <core-media-query query="{{query}}" queryMatches="{{smallScreen}}"></core-media-query>
+    <core-media-query query="{{query}}" queryMatches="{{smallScreen}}"
+                      on-core-media-change="{{onMediaQueryChange}}"></core-media-query>
 
     <link rel="stylesheet" href="../../../bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="profile-badge.css">
 
     <a href="{{url}}" target="_blank">
-      <paper-shadow id="logo" z="1" data-smallScreen="{{smallScreen}}">
+      <paper-shadow id="logo" z="1">
         <i class="fa fa-{{faClass}}"></i>
       </paper-shadow>
     </a>
-
   </template>
+  <script>
+    (function () {
+      Polymer({
+        query: 'max-width: 500px',
+
+        onMediaQueryChange: function (e) {
+          var cls = 'small-screen';
+          e.detail.matches ? this.classList.add(cls) : this.classList.remove(cls);
+        }
+      });
+    })();
+  </script>
 </polymer-element>
