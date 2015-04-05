@@ -6,18 +6,31 @@ body {
   font-family: 'RobotoDraft', sans-serif;
 }
 
+#intro {
+  margin: 10px;
+  padding: 5px 20px;
+  background-color: #FFFF87;
+
+  border-radius: 15px;
+
+  span {
+    color: $headerColor;
+  }
+}
+
 core-toolbar {
   background-color: $headerColor;
   color: $otherColor;
+  font-weight: 300;
+  font-size: 30px;
 
-  h2 {
-    font-weight: 300;
+  &[data-smallScreen=true] {
+    font-size: 20px;
   }
 }
 
 profile-badge-list {
+  padding: 0px 10px;
   margin-left: auto;
   margin-right: auto;
-  width: (250px * 2) + (10px * 4);
-  padding: 40px 20px;
 }
